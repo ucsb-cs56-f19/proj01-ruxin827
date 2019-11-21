@@ -29,9 +29,6 @@ public class HomePageTest {
     @MockBean
     private AuthControllerAdvice aca;
 
-    @MockBean
-    private ClientRegistrationRepository crr;
-
     @Test
     public void getHomePage_ContentType() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
