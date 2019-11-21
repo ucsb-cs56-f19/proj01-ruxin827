@@ -20,8 +20,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureMockMvc
+@WebMvcTest(WebController.class)
 public class HomePageTest {
 
     @Autowired
