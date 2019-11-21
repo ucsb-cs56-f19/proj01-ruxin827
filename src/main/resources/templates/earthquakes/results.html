@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
@@ -8,9 +9,9 @@
     <div class="container">
       <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
-      <h1> Earthquake Search Results</h1>
+      <h1>Earthquake Search Results</h1>
 
-        <table>
+          <table>
             <tr>
                 <th>Distance (km)</th>
                 <td th:text="${eqSearch.distance}"></td>
@@ -20,7 +21,7 @@
                 <td th:text="${eqSearch.minmag}"></td>
             </tr>
         </table>
-        
+
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
