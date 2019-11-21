@@ -56,3 +56,4 @@ public class EarthquakeSearchTest {
             .andExpect(xpath("//title").exists())
             .andExpect(xpath("//title").string("Earthquake Search"));
     }
+}
