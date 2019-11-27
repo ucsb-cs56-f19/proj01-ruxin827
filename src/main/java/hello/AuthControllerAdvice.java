@@ -26,7 +26,7 @@ public class AuthControllerAdvice {
     @ModelAttribute("login")
     public String getLogin(OAuth2AuthenticationToken token){
         if (token == null) return "";
-        return token.getPrincipal().getAttributes().get("login").toString();
+        return token2login(token);
     }
 
     @ModelAttribute("isMember")
