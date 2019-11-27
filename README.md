@@ -1,5 +1,8 @@
-Github pages:https://ucsb-cs56-f19.github.io/lab07-ruxin827/
-Heroku app: https://cs56-f19-lab07-ruxin827.herokuapp.com/
+Github pages:https://ucsb-cs56-f19.github.io/lab07-ruxin827/  
+
+Heroku app: https://cs56-f19-lab07-ruxin827.herokuapp.com/  
+
+Travis-CI page: https://travis-ci.org/ucsb-cs56-f19/lab07-ruxin827  
 
 
 # STARTER-lab07
