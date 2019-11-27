@@ -42,4 +42,8 @@ public class AuthControllerAdvice {
     public String getRole(OAuth2AuthenticationToken token){
         return membershipService.role(token);
     }
+    
+    private String token2login(OAuth2AuthenticationToken token) {
+        return token.getPrincipal().getAttributes().get("login").toString();
+    }
 }
