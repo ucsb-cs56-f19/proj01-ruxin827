@@ -21,31 +21,7 @@
                 </tr>
             </tbody>
         </table>
-
-        <h2> Location Search Results</h2>
-
-        <table class="table">
-          <thead>
-              <tr>
-                  <th>Place Id</th>
-                  <th>Latitude</th>
-                  <th>Longitude</th>
-                  <th>Display Name</th>
-                  <th>Type</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <tr th:each="l: ${place}"> 
-                    <td th:text="${l.place_id}"></td>
-                    <td th:text="${l.lat}"></td>
-                    <td th:text="${l.lon}"></td>
-                    <td th:text="${l.display_name}"></td>
-                    <td th:text="${l.type}"></td>
-              </tr>
-          </tbody>
-      </table>
-
+      
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
