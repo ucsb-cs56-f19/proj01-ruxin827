@@ -17,10 +17,10 @@ public class Place {
   public String type;
 
 /**
-     * Create a FeatureCollection object from json representation
+     * Create a List<Place> object from json representation
      * 
      * @param json String of json returned by API endpoint {@code /classes/search}
-     * @return a new FeatureCollection object
+     * @return a new List<Place>
      * @see <a href=
      *      "https://tools.ietf.org/html/rfc7946">https://tools.ietf.org/html/rfc7946</a>
      */
@@ -30,7 +30,7 @@ public class Place {
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
             List<Place> place = objectMapper.readValue(json, new TypeReference<List<Place>>(){});
-            return featureCollection;
+            return place;
         } catch (JsonProcessingException jpe) {
             logger.error("JsonProcessingException:" + jpe);
             return null;
