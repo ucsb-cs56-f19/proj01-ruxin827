@@ -72,13 +72,21 @@ public class HomePageTest {
     }
 
     @Test
-    public void getHomePage_hasCorrectPage1() throws Exception {
+    public void getHomePage_hasCorrectEarthquakeSearchLink() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[1]/a").exists())
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[1]/a").string("Earthquake Search"));
+    }
+    
+    @Test
+    public void getHomePage_hasCorrectLocationLink() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
                 .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").exists())
-                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").string("Earthquake Search"));
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").string("Locations"));
     }
-    
+
     @Test
     public void getHomePage_hasCorrectUserLink() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
