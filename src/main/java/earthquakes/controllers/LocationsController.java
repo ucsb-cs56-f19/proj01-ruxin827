@@ -1,3 +1,4 @@
+
 package earthquakes.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,36 +13,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
-
-import earthquakes.geojson.FeatureCollection;
-
 import earthquakes.services.LocationQueryService;
 import earthquakes.searches.LocSearch;
 import earthquakes.osm.Place;
 
+import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
+
 @Controller
-public class LocationsController{
+public class LocationsController {
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
     @GetMapping("/locations/search")
-    public String getEarthquakesSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+    public String getLocationsSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
         return "locations/search";
     }
 
     @GetMapping("/locations/results")
-    public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+    public String getLocationsResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
-        LocationQueryService l = new LocationQueryService();
+        LocationQueryService e = new LocationQueryService();
         model.addAttribute("locSearch", locSearch);
-
-        String json = l.getJSON(locSearch.getLocation());
+        String json = e.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
-        
-        List<Place> place = Place.listFromJSON(json);
+        List<Place> place = Place.listFromJson(json);
         model.addAttribute("place",place);
         return "locations/results";
     }
