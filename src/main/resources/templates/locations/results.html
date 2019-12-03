@@ -36,12 +36,12 @@
           </thead>
           <tbody>
               <tr>
-                <tr th:each="f: ${place}"> 
-                    <td th:text="${f.place_id}"></td>
-                    <td th:text="${f.lat}"></td>
-                    <td th:text="${f.lon}"></td>
-                    <td th:text="${f.display_name}"></td>
-                    <td th:text="${f.type}"></td>
+                <tr th:each="p: ${place}"> 
+                    <td th:text="${p.place_id}"></td>
+                    <td th:text="${p.lat}"></td>
+                    <td th:text="${p.lon}"></td>
+                    <td th:text="${p.display_name}"></td>
+                    <td th:text="${p.type}"></td>
               </tr>
           </tbody>
       </table>
