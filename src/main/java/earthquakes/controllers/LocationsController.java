@@ -17,6 +17,7 @@ import earthquakes.geojson.FeatureCollection;
 
 import earthquakes.services.LocationQueryService;
 import earthquakes.searches.LocSearch;
+import earthquakes.osm.Place;
 
 @Controller
 public class LocationsController{
@@ -38,6 +39,9 @@ public class LocationsController{
 
         String json = l.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
+        
+        List<Place> place = Place.fromJSON(json);
+        model.addAttribute("place",place);
         return "locations/results";
     }
 }
