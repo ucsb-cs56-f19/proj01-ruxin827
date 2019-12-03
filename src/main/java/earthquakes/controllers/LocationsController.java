@@ -15,7 +15,7 @@ import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
 
 import earthquakes.geojson.FeatureCollection;
 
-import earthquakes.services.EarthquakeQueryService;
+import earthquakes.services.LocationQueryService;
 import earthquakes.searches.LocSearch;
 
 @Controller
@@ -33,7 +33,11 @@ public class LocationsController{
     @GetMapping("/locations/results")
     public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
+        LocationQueryService l = new LocationQueryService();
         model.addAttribute("locSearch", locSearch);
+
+        String json = l.getJSON(locSearch.getLocation());
+        model.addAttribute("json", json);
         return "locations/results";
     }
 }
