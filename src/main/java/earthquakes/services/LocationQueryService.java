@@ -1,12 +1,9 @@
 package earthquakes.services;
 
 import java.util.Arrays;
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
-
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -31,8 +28,9 @@ public class LocationQueryService {
 
         HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
-        String uri = "https://nominatim.openstreetmap.org/search";
-        String params = String.format("?format=json", location);
+        String uri = "https://nominatim.openstreetmap.org/search/";
+        String params = String.format("?format=json",
+           location);
 
         String url = uri + location + params;
         logger.info("url=" + url);
@@ -49,4 +47,5 @@ public class LocationQueryService {
         logger.info("from LocationQueryService.getJSON: " + retVal);
         return retVal;
     }
+
 }
