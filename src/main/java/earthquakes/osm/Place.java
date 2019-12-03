@@ -16,14 +16,7 @@ public class Place {
   public String display_name;
   public String type;
 
-/**
-     * Create a List<Place> object from json representation
-     * 
-     * @param json String of json returned by API endpoint {@code /classes/search}
-     * @return a new List<Place>
-     * @see <a href=
-     *      "https://tools.ietf.org/html/rfc7946">https://tools.ietf.org/html/rfc7946</a>
-     */
+
       public static List<Place> listFromJson(String json){
         try {
             ObjectMapper objectMapper = new ObjectMapper();
