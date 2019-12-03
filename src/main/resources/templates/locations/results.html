@@ -1,16 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
-    <title>Title of your page goes here</title>
+    <title>Location Search Results</title>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
   </head>
   <body>
     <div class="container">
       <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
-      <h1>Page 2</h1>
+      <h1>Location Search Results</h1>
 
-      <p>This page is a placeholder.</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${locSearch.location}"></td>
+                </tr>
+            </tbody>
+        </table>
 
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
