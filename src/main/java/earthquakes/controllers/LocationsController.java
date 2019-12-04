@@ -29,15 +29,9 @@ public class LocationsController {
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
+    
     public LocationsController(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;   
-    }
-
-    @GetMapping("/locations")
-    public String index(Model model) {
-        Iterable<Location> locations= locationRepository.findAll();
-        model.addAttribute("locations", locations);
-        return "locations/index";
     }
 
     @GetMapping("/locations/search")
@@ -57,6 +51,13 @@ public class LocationsController {
         List<Place> place = Place.listFromJson(json);
         model.addAttribute("place",place);
         return "locations/results";
+    }
+    
+    @GetMapping("/locations")
+    public String index(Model model) {
+        Iterable<Location> locations= locationRepository.findAll();
+        model.addAttribute("locations", locations);
+        return "locations/index";
     }
 
     @PostMapping("/locations/add")
