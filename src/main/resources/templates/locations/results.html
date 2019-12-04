@@ -33,7 +33,7 @@
                   <th>Display Name</th>
                   <th>Type</th>
                   <th>Get Earthquakes</th>
-                  <th>Add to Favorites</th>
+                  <th>Add to favorites</th>
               </tr>
           </thead>
           <tbody>
@@ -51,11 +51,9 @@
                         <input type="hidden" name="name" th:value="${p.display_name}" value=""/>
                         <input type="hidden" name="latitude" th:value="${p.lat}" value=""/>
                         <input type="hidden" name="longitude" th:value="${p.lon}" value=""/>
-                      <input type="submit" class="btn btn-primary" value="Add" />
+                        <input type="submit" class="btn btn-primary" value="Add" />
                       </form>
                     </td>
-
-
               </tr>
           </tbody>
       </table>

@@ -29,9 +29,15 @@ public class LocationsController {
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
-
     public LocationsController(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;   
+    }
+
+    @GetMapping("/locations")
+    public String index(Model model) {
+        Iterable<Location> locations= locationRepository.findAll();
+        model.addAttribute("locations", locations);
+        return "locations/index";
     }
 
     @GetMapping("/locations/search")
@@ -43,20 +49,14 @@ public class LocationsController {
     @GetMapping("/locations/results")
     public String getLocationsResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
-        LocationQueryService e = new LocationQueryService();
+        LocationQueryService e =
+                new LocationQueryService();
         model.addAttribute("locSearch", locSearch);
         String json = e.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
         List<Place> place = Place.listFromJson(json);
         model.addAttribute("place",place);
         return "locations/results";
-    }
-
-    @GetMapping("/locations")
-    public String index(Model model) {
-        Iterable<Location> locations = locationRepository.findAll();
-        model.addAttribute("locations", locations);
-        return "locations/index";
     }
 
     @PostMapping("/locations/add")
@@ -68,10 +68,10 @@ public class LocationsController {
 
     @DeleteMapping("/locations/delete/{id}")
     public String delete(@PathVariable("id") long id, Model model) {
-    Location location = locationRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Invalid courseoffering Id:" + id));
-    locationRepository.delete(location);
-    model.addAttribute("locations", locationRepository.findAll());
-    return "locations/index";
-}
+        Location location = locationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid courseoffering Id:" + id));
+        locationRepository.delete(location);
+        model.addAttribute("locations", locationRepository.findAll());
+        return "locations/index";
+    }
 }
