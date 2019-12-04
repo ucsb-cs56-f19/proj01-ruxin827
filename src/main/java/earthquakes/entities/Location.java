@@ -11,7 +11,7 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String placeId;
+    private long placeId;
     private String name;
     private double latitude;
     private double longitude;
@@ -22,7 +22,7 @@ public class Location {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
    
-    public String getPLaceId() { return placeId; }
+    public Long getPLaceId() { return placeId; }
     public void setPlaceId (String placeId) { this.placeId = placeId; }
 
     public double getLatitude() { return latitude; }
