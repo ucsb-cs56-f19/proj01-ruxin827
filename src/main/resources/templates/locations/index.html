@@ -28,16 +28,15 @@
                 <td th:text="${l.name}"></td>
                 <td th:text="${l.latitude}"></td>
                 <td th:text="${l.longitude}"></td>
-                <td><a th:href="@{/earthquakes/search/(lat=${p.lat},lon=${p.lon},location=${p.display_name})}">Get Earthquakes</a></td>
+                <td><a th:href="@{/earthquakes/search/(lat=${l.latitude},lon=${l.longitude},location=${l.name})}">Get Earthquakes</a></td>
                 <td>
-                  <form th:method="delete" th:action="@{/locations/delete/} + ${loc.id}">
-                  <input type="submit" class="btn btn-danger" value="Delete" />
+                  <form th:method="delete" th:action="@{/locations/delete/} + ${l.id}">
+                    <input type="submit" class="btn btn-danger" value="Delete" />
                   </form>
-                </td> 
+                </td>
               </tr>
           </tbody>
       </table>
-
 
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
